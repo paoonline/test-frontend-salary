@@ -1,8 +1,10 @@
-import {ContainerProps} from '../../commos/types';
+import {ContainerProps} from '../../commons/types';
 
-type PasscodeContainerType = {
+export type PasscodeContainerType = {
   pinCode: string[];
   numberCode: string[];
+  handle: (num: string) => void;
+  remove: () => void;
 };
 
 export type PasscodeContainerProps = ContainerProps<PasscodeContainerType>;

@@ -34,7 +34,11 @@ export const PasscodeScreen = () => (
 
           <WrapNumCode>
             {props.numberCode.map((res, key) => (
-              <NumCode key={key}>
+              <NumCode
+                key={key}
+                onPress={() =>
+                  res === 'X' ? props.remove() : props.handle(res)
+                }>
                 <Text>{res}</Text>
               </NumCode>
             ))}
