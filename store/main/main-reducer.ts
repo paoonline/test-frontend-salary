@@ -1,5 +1,5 @@
 import {createReducer, PayloadAction} from '@reduxjs/toolkit';
-import actionTypes from './withdraw-types';
+import actionTypes from './main-types';
 import {AuthContainerProps} from './types';
 const initialState = {
   pinCode: ['', '', '', '', '', ''],

@@ -10,6 +10,7 @@ import {Text} from 'react-native';
 import {Circle} from '../../components/Circle';
 import {PasscodeContainer} from '../../container/PasscodeContainer';
 import {NumCode} from '../../components/Button';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export const PasscodeScreen = () => (
   <PasscodeContainer
@@ -33,15 +34,21 @@ export const PasscodeScreen = () => (
           </WrapPasscode>
 
           <WrapNumCode>
-            {props.numberCode.map((res, key) => (
-              <NumCode
-                key={key}
-                onPress={() =>
-                  res === 'X' ? props.remove() : props.handle(res)
-                }>
-                <Text>{res}</Text>
-              </NumCode>
-            ))}
+            {props.numberCode.map((res, key) =>
+              res === 'X' ? (
+                <Icon
+                  key={key}
+                  name="close"
+                  size={30}
+                  onPress={props.remove}
+                  style={{margin: 25}}
+                />
+              ) : (
+                <NumCode key={key} onPress={() => props.handle(res)}>
+                  <Text>{res}</Text>
+                </NumCode>
+              ),
+            )}
           </WrapNumCode>
         </Wrapper>
       );

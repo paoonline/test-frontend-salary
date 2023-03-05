@@ -18,6 +18,7 @@ import {
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 // import {SignInScreen} from './screens/SignInScreen';
 import {PasscodeScreen} from './screens/Passcode';
+import {MainScreen} from './screens/MainScreen';
 
 // type SectionProps = PropsWithChildren<{
 //   title: string;
@@ -30,6 +31,10 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  //Main screen
+  return <MainScreen />;
+
+  //Authen screen
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar

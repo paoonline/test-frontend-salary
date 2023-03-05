@@ -1,6 +1,6 @@
 import {createSelector} from '@reduxjs/toolkit';
 
-const authSelector = (state: any | null) => state.withdraw;
+const authSelector = (state: any | null) => state.main;
 export const authDataSelector = createSelector(authSelector, (state: any) => {
   return state;
 });
