@@ -10,7 +10,7 @@ export const SignInScreen = () => (
     <Box />
     <WrapInput>
       <Text>PHONE NUMBER</Text>
-      <InputCustom />
+      <InputCustom autoFocus={true} />
       <WrapperButton>
         <ButtonCustom
           title="LOGIN"

@@ -5,3 +5,11 @@ export const InputCustom = styled.TextInput`
   height: 30px;
   margin-top: 10px;
 `;
+
+export const InputCustomBackGround = styled.TextInput`
+
+  height: 100px;
+  font-size: 30px;
+  font-weight: bold;
+`;
+

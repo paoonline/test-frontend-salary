@@ -3,28 +3,44 @@ import {Text} from 'react-native';
 import styled from 'styled-components/native';
 import {grayColor} from '../utils/colors';
 
-type ButtonProps = {
+interface ButtonProps extends ButtonSize {
   title: string;
   color: string;
   onPress: () => void;
+  width?: string;
+  height?: string;
+  textLeft?: boolean;
+}
+
+type ButtonSize = {
+  width?: string;
+  height?: string;
+  textLeft?: boolean;
 };
 
-export const WrapButton = styled.View`
+export const WrapButton = styled.View<ButtonSize>`
   background-color: ${grayColor};
-  width: 100px;
-  height: 40px;
-  margin-top: 10px;
+  width: ${p => (p.width ? p.width : '100px')};
+  height: ${p => (p.height ? p.height : '40px')};
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: ${p => (p.textLeft ? 'flex-start' : 'center')};
+  padding: ${p => (p.textLeft ? '10px' : '0px')};
 `;
 
 export const WrapButtonText = styled.TouchableOpacity<{color: string}>`
   color: ${p => (p.color ? p.color : 'black')};
 `;
 
-export const ButtonCustom = ({title, color, onPress}: ButtonProps) => (
-  <WrapButton>
+export const ButtonCustom = ({
+  title,
+  color,
+  onPress,
+  height,
+  width,
+  textLeft,
+}: ButtonProps) => (
+  <WrapButton height={height} width={width} textLeft={textLeft}>
     <WrapButtonText color={color ? color : 'black'} onPress={onPress}>
       <Text>{title}</Text>
     </WrapButtonText>

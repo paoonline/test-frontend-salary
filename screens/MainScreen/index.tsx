@@ -4,7 +4,6 @@ import React from 'react';
 import {WithdrawScreen} from './WithdrawScreen';
 import {SettingScreen} from './SettingScreen';
 import {HomeScreen} from './HomeScreen';
-
 const Tab = createMaterialBottomTabNavigator();
 
 export const MainScreen = () => (

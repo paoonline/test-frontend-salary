@@ -4,7 +4,7 @@ export const Wrapper = styled.View`
   width: 100%;
   justify-content: space-around;
   align-items: center;
-  padding: 50px;
+  padding: 30px;
 `;
 
 export const WrapPasscode = styled.View`
