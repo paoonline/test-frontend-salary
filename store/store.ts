@@ -5,7 +5,17 @@ import {
   useSelector as useReduxSelector,
 } from 'react-redux';
 import {rootReducer} from './rootReducer';
-import {persistStore} from 'redux-persist';
+import {persistReducer, persistStore} from 'redux-persist';
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+const persistConfig = {
+  key: 'root',
+  storage: AsyncStorage,
+  whitelist: ['auth'],
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
   reducer: rootReducer,

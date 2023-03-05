@@ -12,9 +12,23 @@ export const authHandlePinAction = createAction(
   },
 );
 
+export const authHandleSignin = createAction(
+  actionTypes.AUTH_SIGNIN,
+  function prepare(data) {
+    return {
+      payload: {
+        ...data.data,
+      },
+    };
+  },
+);
+
 export const authRemovePinAction = createAction(actionTypes.AUTH_REMOVE_PIN);
+export const authLoading = createAction(actionTypes.AUTH_LOADING);
 
 export default {
   authHandlePinAction,
   authRemovePinAction,
+  authHandleSignin,
+  authLoading,
 };
