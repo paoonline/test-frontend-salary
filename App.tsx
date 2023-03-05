@@ -16,7 +16,8 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {SignInScreen} from './screens/Signin/SignInScreen';
+// import {SignInScreen} from './screens/SignInScreen';
+import {PasscodeScreen} from './screens/Passcode';
 
 // type SectionProps = PropsWithChildren<{
 //   title: string;
@@ -40,10 +41,10 @@ function App(): JSX.Element {
         contentContainerStyle={{
           alignItems: 'center',
           flexGrow: 1,
-          justifyContent: 'center',
+          justifyContent: 'space-evenly',
           height: '100%',
         }}>
-        <SignInScreen />
+        <PasscodeScreen />
       </ScrollView>
     </SafeAreaView>
   );

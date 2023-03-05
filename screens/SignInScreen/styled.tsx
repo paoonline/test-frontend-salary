@@ -1,9 +1,17 @@
 import styled from 'styled-components/native';
 
 export const Wrapper = styled.View`
-  width: 70%;
+  width: 100%;
   justify-content: center;
   align-items: center;
+  padding: 50px;
+`;
+
+export const WrapperButton = styled.View`
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
 `;
 
 export const WrapInput = styled.View`
@@ -13,6 +21,6 @@ export const WrapInput = styled.View`
 
 export const InputCustom = styled.TextInput`
   background-color: #dfdfde;
-  height: 30px;
+  height: 40px;
   margin-top: 10px;
 `;
