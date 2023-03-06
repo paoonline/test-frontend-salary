@@ -11,3 +11,5 @@ const prefixApi =
     "android": "react-native run-android",
     "ios": "react-native run-ios",
   },
+
+Please recheck file services/api.ts first
