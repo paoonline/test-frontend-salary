@@ -2,6 +2,7 @@ import {InitContainerProps} from './types';
 import {useAppDispatch, useAppSelector} from '../../store/store';
 import {authDataSelector} from '../../store/auth/auth-selectors';
 import auth from '../../store/auth/auth-actions';
+import main from '../../store/main/main-actions';
 import {useEffect} from 'react';
 import jwt_decode from 'jwt-decode';
 import {jwtTokenType} from '../../commons/types';
@@ -12,6 +13,7 @@ export const InitContainer = ({render}: InitContainerProps) => {
 
   const logout = () => {
     dispatch(auth.authClear());
+    dispatch(main.mainClear());
   };
 
   const resetPin = () => {

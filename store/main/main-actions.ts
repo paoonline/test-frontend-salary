@@ -34,8 +34,11 @@ export const withdrawAmount = createAction(
   },
 );
 
+export const mainClear = createAction(actionTypes.MAIN_CLEAR);
+
 export default {
   setProfile,
   setTrans,
   withdrawAmount,
+  mainClear,
 };

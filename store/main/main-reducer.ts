@@ -2,9 +2,16 @@ import {createReducer, PayloadAction} from '@reduxjs/toolkit';
 import actionTypes from './main-action-types';
 import {MainContainerProps} from './types';
 const initialState = {
-  profile: {},
-  transaction: {},
-  messsage: '',
+  profile: {
+    email: '',
+    firstname: '',
+    lastname: '',
+    uid: '',
+  },
+  transaction: {
+    available: 0,
+    transactions: [],
+  },
 } as MainContainerProps;
 
 const reducer = createReducer(initialState, builder => {
@@ -21,6 +28,11 @@ const reducer = createReducer(initialState, builder => {
       state.transaction = action.payload;
     },
   );
+
+  builder.addCase(actionTypes.MAIN_CLEAR, state => {
+    state.profile = initialState.profile;
+    state.transaction = initialState.transaction;
+  });
 });
 
 export default reducer;
