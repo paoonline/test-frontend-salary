@@ -39,6 +39,17 @@ const reducer = createReducer(initialState, builder => {
   builder.addCase(actionTypes.AUTH_LOADING, state => {
     state.loading = true;
   });
+
+  builder.addCase(actionTypes.AUTH_CLEAR, state => {
+    state.loading = false;
+    state.token = '';
+    state.pinCode = initialState.pinCode;
+    state.numberCode = initialState.numberCode;
+  });
+
+  builder.addCase(actionTypes.AUTH_RESET_PIN, state => {
+    state.pinCode = initialState.pinCode;
+  });
 });
 
 export default reducer;

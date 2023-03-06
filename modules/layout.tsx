@@ -1,9 +1,11 @@
+/* eslint-disable react-native/no-inline-styles */
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {StatusBar, ScrollView, useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {PropsWithChildren} from 'react';
 import Spinner from 'react-native-loading-spinner-overlay/lib';
 import {InitContainer} from '../container/InitContainer';
+import React from 'react';
 
 type LayoutProps = PropsWithChildren;
 

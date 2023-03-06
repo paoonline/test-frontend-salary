@@ -6,7 +6,7 @@ import {grayColor} from '../utils/colors';
 interface ButtonProps extends ButtonSize {
   title: string;
   color: string;
-  onPress: () => void;
+  onPress?: () => void;
   width?: string;
   height?: string;
   textLeft?: boolean;
@@ -28,20 +28,19 @@ export const WrapButton = styled.View<ButtonSize>`
   padding: ${p => (p.textLeft ? '10px' : '0px')};
 `;
 
-export const WrapButtonText = styled.TouchableOpacity<{color: string}>`
+export const WrapButtonText = styled.View<{color: string}>`
   color: ${p => (p.color ? p.color : 'black')};
 `;
 
 export const ButtonCustom = ({
   title,
   color,
-  onPress,
   height,
   width,
   textLeft,
 }: ButtonProps) => (
   <WrapButton height={height} width={width} textLeft={textLeft}>
-    <WrapButtonText color={color ? color : 'black'} onPress={onPress}>
+    <WrapButtonText color={color ? color : 'black'}>
       <Text>{title}</Text>
     </WrapButtonText>
   </WrapButton>
@@ -54,4 +53,5 @@ export const NumCode = styled.TouchableOpacity`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index
 `;

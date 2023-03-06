@@ -18,16 +18,13 @@ export const SignInScreen = () => (
             onChange={e => props.setPhoneNumber(e.nativeEvent.text)}
             maxLength={10}
           />
-          <WrapperButton>
-            <ButtonCustom
-              title="LOGIN"
-              color={grayColor}
-              onPress={() =>
-                props.number.length < 10
-                  ? Alert.alert('min length  10')
-                  : props.login()
-              }
-            />
+          <WrapperButton
+            onPress={() =>
+              props.number.length < 10
+                ? Alert.alert('min length  10')
+                : props.login()
+            }>
+            <ButtonCustom title="LOGIN" color={grayColor} />
           </WrapperButton>
         </WrapInput>
       </Wrapper>

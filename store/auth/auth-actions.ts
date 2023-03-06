@@ -25,10 +25,14 @@ export const authHandleSignin = createAction(
 
 export const authRemovePinAction = createAction(actionTypes.AUTH_REMOVE_PIN);
 export const authLoading = createAction(actionTypes.AUTH_LOADING);
+export const authClear = createAction(actionTypes.AUTH_CLEAR);
+export const authResetPin = createAction(actionTypes.AUTH_RESET_PIN);
 
 export default {
   authHandlePinAction,
   authRemovePinAction,
   authHandleSignin,
   authLoading,
+  authClear,
+  authResetPin,
 };

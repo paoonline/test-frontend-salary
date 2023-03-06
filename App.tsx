@@ -9,18 +9,15 @@ export const App = () => (
   <InitContainer
     render={props => {
       //authen
-      if (props.token && props.pinCode !== '' && props.pinCode !== undefined) {
+      if (props.token !== '' && props.pinCode.length === 6) {
         return <MainScreen />;
       }
 
       //not authorized
       return (
         <Layout>
-          {props.token === '' && <SignInScreen />}
-          {props.token &&
-            (props.pinCode === undefined || props.pinCode === '') && (
-              <PasscodeScreen />
-            )}
+          {props.token === '' && props.pinCode.length < 6 && <SignInScreen />}
+          {props.token && props.pinCode.length < 6 && <PasscodeScreen />}
         </Layout>
       );
     }}

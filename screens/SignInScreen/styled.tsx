@@ -7,7 +7,7 @@ export const Wrapper = styled.View`
   padding: 30px;
 `;
 
-export const WrapperButton = styled.View`
+export const WrapperButton = styled.TouchableOpacity`
   width: 100%;
   justify-content: center;
   align-items: center;
