@@ -23,10 +23,9 @@ export const InitContainer = ({render}: InitContainerProps) => {
     clearInterval(interval as any);
     if (authState.token) {
       const token = jwt_decode(authState.token) as jwtTokenType;
-      const currentDate = new Date().getTime();
-      const expDate = new Date(token.exp * 1000).getTime();
-
       interval = setInterval(() => {
+        const currentDate = new Date().getTime();
+        const expDate = new Date(token.exp * 1000).getTime();
         if (currentDate > expDate) {
           logout();
           clearInterval(interval as any);

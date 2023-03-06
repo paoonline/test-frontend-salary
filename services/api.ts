@@ -1,5 +1,5 @@
 import axios, {AxiosError, AxiosResponse} from 'axios';
-
+import {GetToken} from '../commons/hook';
 interface SigninProps {
   phone: string;
 }
@@ -11,8 +11,7 @@ interface AmountProps {
 axios.defaults.baseURL = 'http://localhost:3000/api/v1';
 
 axios.interceptors.request.use(config => {
-  config.headers.Authorization =
-    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyVWlkIjoiam9obl91aWQiLCJwaG9uZSI6IjAzNjQyMjU0NCIsImlhdCI6MTY3ODAyOTg3MiwiZXhwIjoxNjc4MDMwMDUyfQ.oNeey0m5wJ_FsLLWiKb5LYWmaECthQR9dYbivRqMBJ0';
+  config.headers.Authorization = `Bearer ${GetToken}`;
   return config;
 });
 
