@@ -23,7 +23,19 @@ export const setTrans = createAction(
   },
 );
 
+export const withdrawAmount = createAction(
+  actionTypes.MAIN_WITHDRAW_AMOUNT,
+  function prepare(data) {
+    return {
+      payload: {
+        ...data.data,
+      },
+    };
+  },
+);
+
 export default {
   setProfile,
   setTrans,
+  withdrawAmount,
 };

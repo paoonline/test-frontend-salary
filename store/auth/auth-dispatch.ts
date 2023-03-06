@@ -10,8 +10,13 @@ const loginDispatch = createAsyncThunk(
     try {
       services
         .signIn(data.data)
-        .then(res => dispatch(actions.authHandleSignin(res)));
-    } catch (err: any) {}
+        .then(res => dispatch(actions.authHandleSignin(res)))
+        .catch(() => {
+          dispatch(actions.authLoading(false));
+        });
+    } catch (err: any) {
+      dispatch(actions.authLoading(false));
+    }
   },
 );
 

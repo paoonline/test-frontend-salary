@@ -4,4 +4,5 @@ import {TransType} from '../../../commons/apiType/transactionResponse';
 export type MainContainerProps = {
   profile: ProfileType;
   transaction: TransType;
+  messsage: string;
 };

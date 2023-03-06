@@ -42,7 +42,7 @@ export const HomeScreen = () => {
 
               <MarginTop>
                 <Text>Transaction History</Text>
-                {props.transaction.transactions.map((res, key) => {
+                {props.transaction.transactions?.map((res, key) => {
                   return (
                     <SquareList height="80" key={res.uid + key}>
                       <FlexRow>

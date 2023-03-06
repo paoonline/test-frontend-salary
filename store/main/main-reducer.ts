@@ -4,6 +4,7 @@ import {MainContainerProps} from './types';
 const initialState = {
   profile: {},
   transaction: {},
+  messsage: '',
 } as MainContainerProps;
 
 const reducer = createReducer(initialState, builder => {
