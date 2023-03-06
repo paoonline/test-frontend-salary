@@ -5,4 +5,5 @@ export type AuthContainerType = {
   loading: boolean;
   logout: () => void;
   resetPin: () => void;
+  phoneNumber: string;
 };

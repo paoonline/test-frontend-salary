@@ -16,8 +16,10 @@ export const App = () => (
       //not authorized
       return (
         <Layout>
-          {props.token === '' && props.pinCode.length < 6 && <SignInScreen />}
-          {props.token && props.pinCode.length < 6 && <PasscodeScreen />}
+          {props.phoneNumber === '' && props.pinCode.length < 6 && (
+            <SignInScreen />
+          )}
+          {props.phoneNumber && props.pinCode.length <= 6 && <PasscodeScreen />}
         </Layout>
       );
     }}

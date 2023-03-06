@@ -7,6 +7,7 @@ const initialState = {
   pinCode: ['', '', '', '', '', ''],
   numberCode: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '', '0', 'X'],
   loading: false,
+  phoneNumber: '',
 } as AuthContainerType;
 
 const reducer = createReducer(initialState, builder => {
@@ -49,12 +50,21 @@ const reducer = createReducer(initialState, builder => {
     state.token = '';
     state.pinCode = initialState.pinCode;
     state.numberCode = initialState.numberCode;
+    state.phoneNumber = '';
     AsyncStorage.setItem('token', '');
   });
 
   builder.addCase(actionTypes.AUTH_RESET_PIN, state => {
     state.pinCode = initialState.pinCode;
+    state.token = '';
   });
+
+  builder.addCase(
+    actionTypes.AUTH_PHONE,
+    (state, action: PayloadAction<any>) => {
+      state.phoneNumber = action.payload;
+    },
+  );
 });
 
 export default reducer;

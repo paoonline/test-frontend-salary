@@ -6,6 +6,7 @@ export type InitContainerType = {
   loading: boolean;
   logout: () => void;
   resetPin: () => void;
+  phoneNumber: string;
 };
 
 export type InitContainerProps = ContainerProps<InitContainerType>;

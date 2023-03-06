@@ -36,6 +36,15 @@ export const authLoading = createAction(
   },
 );
 
+export const authPhone = createAction(
+  actionTypes.AUTH_PHONE,
+  function prepare(num) {
+    return {
+      payload: num,
+    };
+  },
+);
+
 export default {
   authHandlePinAction,
   authRemovePinAction,
@@ -43,4 +52,5 @@ export default {
   authLoading,
   authClear,
   authResetPin,
+  authPhone,
 };

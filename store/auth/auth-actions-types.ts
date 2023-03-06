@@ -6,4 +6,5 @@ export default {
   AUTH_LOADING: [modulePath, 'AUTH_LOADING'].join('/'),
   AUTH_CLEAR: [modulePath, 'AUTH_CLEAR'].join('/'),
   AUTH_RESET_PIN: [modulePath, 'AUTH_RESET_PIN'].join('/'),
+  AUTH_PHONE: [modulePath, 'AUTH_PHONE'].join('/'),
 };

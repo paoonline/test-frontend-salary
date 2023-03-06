@@ -1,16 +1,14 @@
-import {useAppDispatch, useAppSelector} from '../../store/store';
-import {authDataSelector} from '../../store/auth/auth-selectors';
-import {SigninContainerProps} from './types';
 import {useState} from 'react';
-import auth from '../../store/auth/auth-dispatch';
+import action from '../../store/auth/auth-actions';
+import {useAppDispatch} from '../../store/store';
+import {SigninContainerProps} from './types';
 
 export const SigninContainer = ({render}: SigninContainerProps) => {
-  const authState = useAppSelector(authDataSelector);
   const dispatch = useAppDispatch();
   const [number, setPhoneNumber] = useState<string>('');
 
   const loginWithPhoneNumber = () => {
-    dispatch(auth.loginDispatch({data: number}));
+    dispatch(action.authPhone(number));
   };
 
   const handlePhoneNumber = (text: string) => {

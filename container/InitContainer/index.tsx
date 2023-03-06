@@ -30,7 +30,7 @@ export const InitContainer = ({render}: InitContainerProps) => {
         const currentDate = new Date().getTime();
         const expDate = new Date(token.exp * 1000).getTime();
         if (currentDate > expDate) {
-          logout();
+          resetPin();
           clearInterval(interval as any);
         }
       }, 1000);
@@ -47,5 +47,6 @@ export const InitContainer = ({render}: InitContainerProps) => {
     loading: authState.loading,
     logout: () => logout(),
     resetPin: () => resetPin(),
+    phoneNumber: authState.phoneNumber,
   });
 };

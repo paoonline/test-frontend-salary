@@ -1,6 +1,6 @@
 import axios, {AxiosError, AxiosResponse} from 'axios';
 import {getToken} from '../commons/hook';
-
+import {Platform} from 'react-native';
 interface SigninPropsRequest {
   phone: string;
 }
@@ -9,7 +9,10 @@ interface AmountPropsRequest {
   amount: number;
 }
 
-axios.defaults.baseURL = 'http://localhost:3000/api/v1';
+const prefixApi =
+  Platform.OS === 'ios' ? 'http://localhost:3000' : 'http://192.168.1.6:3000'; // depend on ip such as computer
+
+axios.defaults.baseURL = `${prefixApi}/api/v1`;
 
 axios.interceptors.request.use(
   async config => {
