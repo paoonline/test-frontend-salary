@@ -4,10 +4,10 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Square, SquareList} from '../../../components/Square';
 import {TextBold} from '../../../components/Text';
 import {MainContainer} from '../../../container/MainContainer';
+import {ListTrans} from '../../../modules/ListTrans';
 import {Layout} from '../../../modules/layout';
 import {
   FlexCol,
-  FlexRow,
   MarginTop,
   WrapFlexRowEnd,
   WrapProfile,
@@ -45,24 +45,7 @@ export const HomeScreen = () => {
                 {props.transaction.transactions?.map((res, key) => {
                   return (
                     <SquareList height="80" key={res.uid + key}>
-                      <FlexRow>
-                        <View>
-                          <Icon
-                            name="comment"
-                            size={30}
-                            style={{paddingRight: 10}}
-                          />
-                        </View>
-
-                        <View>
-                          <Text>{res.date}</Text>
-                          <Text>COMPLETE</Text>
-                        </View>
-                      </FlexRow>
-
-                      <View>
-                        <Text>{res.amount}</Text>
-                      </View>
+                      <ListTrans date={res.date} amount={res.amount} />
                     </SquareList>
                   );
                 })}
