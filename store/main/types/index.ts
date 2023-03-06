@@ -1,1 +1,5 @@
-export type MainContainerProps = any;
+import {ProfileType} from '../../../commons/apiType/profileResponse';
+
+export type MainContainerProps = {
+  profile: ProfileType;
+};

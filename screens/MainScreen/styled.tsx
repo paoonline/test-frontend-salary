@@ -37,3 +37,7 @@ export const TitleText = styled.Text`
   text-align: center;
   padding-bottom: 50px;
 `;
+
+export const FlexCol = styled.View`
+  flex-direction: column;
+`;

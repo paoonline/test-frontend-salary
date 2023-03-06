@@ -1,4 +1,5 @@
 import {ProfileResponse} from '../../commons/apiType/profileResponse';
+import {TransResponse} from '../../commons/apiType/transactionResponse';
 import api from '../../services/api';
 
 const getProfile = async () => {
@@ -8,7 +9,7 @@ const getProfile = async () => {
 
 const getTransaction = async () => {
   const callApi = await api.main.getTransaction();
-  return callApi;
+  return callApi as unknown as TransResponse;
 };
 
 export default {

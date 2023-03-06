@@ -1,18 +1,18 @@
+import React from 'react';
+import {Text, View} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {Square, SquareList} from '../../../components/Square';
+import {TextBold} from '../../../components/Text';
+import {MainContainer} from '../../../container/MainContainer';
+import {Layout} from '../../../modules/layout';
 import {
+  FlexCol,
   FlexRow,
   MarginTop,
   WrapFlexRowEnd,
   WrapProfile,
   Wrapper,
 } from '../styled';
-import {Layout} from '../../../modules/layout';
-import {Text, View} from 'react-native';
-import {Circle} from '../../../components/Circle';
-import React from 'react';
-import {Square, SquareList} from '../../../components/Square';
-import {TextBold} from '../../../components/Text';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {MainContainer} from '../../../container/MainContainer';
 
 export const HomeScreen = () => {
   return (
@@ -23,10 +23,12 @@ export const HomeScreen = () => {
             <Wrapper>
               <WrapFlexRowEnd>
                 <WrapProfile>
-                  <View style={{width: 40}}>
-                    <Text style={{textAlign: 'center'}}>John Doe</Text>
-                  </View>
-                  <Circle height={'40'} width={'40'} />
+                  <FlexCol>
+                    <Text>{props.profile.firstname}</Text>
+                    <Text>{props.profile.lastname}</Text>
+                  </FlexCol>
+
+                  <Icon name="account" size={50} />
                 </WrapProfile>
               </WrapFlexRowEnd>
               <View>
@@ -41,7 +43,11 @@ export const HomeScreen = () => {
                 <SquareList height="80">
                   <FlexRow>
                     <View>
-                      <Icon name="comment" size={30} style={{padding: 5}} />
+                      <Icon
+                        name="comment"
+                        size={30}
+                        style={{paddingRight: 10}}
+                      />
                     </View>
 
                     <View>
