@@ -37,9 +37,12 @@ const reducer = createReducer(initialState, builder => {
     },
   );
 
-  builder.addCase(actionTypes.AUTH_LOADING, state => {
-    state.loading = true;
-  });
+  builder.addCase(
+    actionTypes.AUTH_LOADING,
+    (state, action: PayloadAction<any>) => {
+      state.loading = action.payload;
+    },
+  );
 
   builder.addCase(actionTypes.AUTH_CLEAR, state => {
     state.loading = false;

@@ -3,6 +3,7 @@ import actionTypes from './main-action-types';
 import {MainContainerProps} from './types';
 const initialState = {
   profile: {},
+  transaction: {},
 } as MainContainerProps;
 
 const reducer = createReducer(initialState, builder => {
@@ -10,6 +11,13 @@ const reducer = createReducer(initialState, builder => {
     actionTypes.MAIN_PROFILE,
     (state, action: PayloadAction<any>) => {
       state.profile = action.payload;
+    },
+  );
+
+  builder.addCase(
+    actionTypes.MAIN_TRANS,
+    (state, action: PayloadAction<any>) => {
+      state.transaction = action.payload;
     },
   );
 });

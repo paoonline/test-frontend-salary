@@ -6,7 +6,7 @@ import {actionTypes} from '.';
 const loginDispatch = createAsyncThunk(
   actionTypes.AUTH_HANDLE_PIN,
   async (data: any, {dispatch}) => {
-    dispatch(actions.authLoading());
+    dispatch(actions.authLoading(true));
     try {
       services
         .signIn(data.data)

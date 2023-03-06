@@ -8,7 +8,7 @@ export type TransList = {
 
 export type TransType = {
   available: number;
-  transaction: TransList[];
+  transactions: TransList[];
 };
 
 export type TransResponse = ApiWrapType<TransType>;

@@ -7,12 +7,13 @@ import mainSelector from '../../store/main/main-selectors';
 export const MainContainer = ({render}: MainContainerProps) => {
   const dispatch = useAppDispatch();
   const mainState = useAppSelector(mainSelector.mainDataSelector);
-  const getProfile = () => {
+  const initCall = () => {
     dispatch(main.mainProfileDispatch({}));
+    dispatch(main.mainTransDispatch({}));
   };
 
   useEffect(() => {
-    getProfile();
+    initCall();
   }, []);
 
   return render({

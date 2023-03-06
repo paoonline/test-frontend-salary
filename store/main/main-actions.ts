@@ -12,6 +12,18 @@ export const setProfile = createAction(
   },
 );
 
+export const setTrans = createAction(
+  actionTypes.MAIN_TRANS,
+  function prepare(data) {
+    return {
+      payload: {
+        ...data.data,
+      },
+    };
+  },
+);
+
 export default {
   setProfile,
+  setTrans,
 };

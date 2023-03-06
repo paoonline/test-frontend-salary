@@ -34,32 +34,38 @@ export const HomeScreen = () => {
               <View>
                 <Text>Avalible Balance</Text>
                 <Square height="150">
-                  <TextBold size={'60'}>$300</TextBold>
+                  <TextBold size={'60'}>
+                    ${props.transaction.available}
+                  </TextBold>
                 </Square>
               </View>
 
               <MarginTop>
                 <Text>Transaction History</Text>
-                <SquareList height="80">
-                  <FlexRow>
-                    <View>
-                      <Icon
-                        name="comment"
-                        size={30}
-                        style={{paddingRight: 10}}
-                      />
-                    </View>
+                {props.transaction.transactions.map((res, key) => {
+                  return (
+                    <SquareList height="80" key={res.uid + key}>
+                      <FlexRow>
+                        <View>
+                          <Icon
+                            name="comment"
+                            size={30}
+                            style={{paddingRight: 10}}
+                          />
+                        </View>
 
-                    <View>
-                      <Text>16 FEB 2023</Text>
-                      <Text>COMPLETE</Text>
-                    </View>
-                  </FlexRow>
+                        <View>
+                          <Text>{res.date}</Text>
+                          <Text>COMPLETE</Text>
+                        </View>
+                      </FlexRow>
 
-                  <View>
-                    <Text>$100</Text>
-                  </View>
-                </SquareList>
+                      <View>
+                        <Text>{res.amount}</Text>
+                      </View>
+                    </SquareList>
+                  );
+                })}
               </MarginTop>
             </Wrapper>
           </Layout>
