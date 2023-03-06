@@ -1,12 +1,14 @@
 import {useAppDispatch, useAppSelector} from '../../store/store';
-import {authDataSelector} from '../../store/auth/auth-selectors';
 import {MainContainerProps} from './types';
+import {useEffect} from 'react';
+import main from '../../store/main/main-services';
 
 export const MainContainer = ({render}: MainContainerProps) => {
-  const authState = useAppSelector(authDataSelector);
   const dispatch = useAppDispatch();
 
-  return render({
+  useEffect(() => {
+    // main.getProfile();
+  }, []);
 
-  });
+  return render({});
 };

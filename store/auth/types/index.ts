@@ -1,3 +1,8 @@
-import {PasscodeContainerType} from '../../../container/PasscodeContainer/types';
-
-export type AuthContainerProps = PasscodeContainerType;
+export type AuthContainerType = {
+  token: string;
+  pinCode: string[];
+  numberCode: string[];
+  loading: boolean;
+  logout: () => void;
+  resetPin: () => void;
+};

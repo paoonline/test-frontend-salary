@@ -1,13 +1,13 @@
 import {createReducer, PayloadAction} from '@reduxjs/toolkit';
-import actionTypes from './auth-types';
-import {AuthContainerProps} from './types';
-import {InitContainerType} from '../../container/InitContainer/types';
+import actionTypes from './auth-actions-types';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {AuthContainerType} from './types';
 const initialState = {
   token: '',
   pinCode: ['', '', '', '', '', ''],
   numberCode: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '', '0', 'X'],
   loading: false,
-} as AuthContainerProps & InitContainerType;
+} as AuthContainerType;
 
 const reducer = createReducer(initialState, builder => {
   builder.addCase(
@@ -33,6 +33,7 @@ const reducer = createReducer(initialState, builder => {
     (state, action: PayloadAction<any>) => {
       state.token = action.payload.token;
       state.loading = false;
+      AsyncStorage.setItem('token', action.payload.token);
     },
   );
 
@@ -45,6 +46,7 @@ const reducer = createReducer(initialState, builder => {
     state.token = '';
     state.pinCode = initialState.pinCode;
     state.numberCode = initialState.numberCode;
+    AsyncStorage.setItem('token', '');
   });
 
   builder.addCase(actionTypes.AUTH_RESET_PIN, state => {

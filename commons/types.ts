@@ -10,3 +10,7 @@ export interface jwtTokenType {
   phone: string;
   userUid: string;
 }
+
+export interface ApiWrapType<T> {
+  data: T;
+}

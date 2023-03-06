@@ -1,7 +1,6 @@
-import {authDataSelector} from '../store/auth/auth-selectors';
-import {useAppSelector} from '../store/store';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const GetToken = () => {
-  const authState = useAppSelector(authDataSelector);
-  return authState.token;
+export const getToken = () => {
+  const token = AsyncStorage.getItem('token');
+  return token;
 };

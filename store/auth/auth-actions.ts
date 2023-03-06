@@ -1,5 +1,5 @@
 import {createAction} from '@reduxjs/toolkit';
-import actionTypes from './auth-types';
+import actionTypes from './auth-actions-types';
 
 export const authHandlePinAction = createAction(
   actionTypes.AUTH_HANDLE_PIN,

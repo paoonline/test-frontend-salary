@@ -1,19 +1,28 @@
 import axios, {AxiosError, AxiosResponse} from 'axios';
-import {GetToken} from '../commons/hook';
-interface SigninProps {
+import {getToken} from '../commons/hook';
+
+interface SigninPropsRequest {
   phone: string;
 }
 
-interface AmountProps {
+interface AmountPropsRequest {
   amount: number;
 }
 
 axios.defaults.baseURL = 'http://localhost:3000/api/v1';
 
-axios.interceptors.request.use(config => {
-  config.headers.Authorization = `Bearer ${GetToken}`;
-  return config;
-});
+axios.interceptors.request.use(
+  async config => {
+    const token = await getToken();
+    if (token) {
+      config.headers.Authorization = 'Bearer ' + token;
+    }
+    return config;
+  },
+  error => {
+    return Promise.reject(error);
+  },
+);
 
 axios.interceptors.response.use(
   res => res,
@@ -45,13 +54,13 @@ const request = {
 };
 
 const auth = {
-  signin: (data: SigninProps) => request.post<void>('/signin', data),
+  signin: (data: SigninPropsRequest) => request.post<void>('/signin', data),
 };
 
 const main = {
   getProfile: () => request.get<void>('/user/profile'),
   getTransaction: () => request.get<void>('/user/transactions'),
-  withdraw: (data: AmountProps) => request.post<void>('user/withdraw', data),
+  withdraw: (data: AmountPropsRequest) => request.post<void>('user/withdraw', data),
 };
 
 const api = {

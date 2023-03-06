@@ -1,7 +1,7 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
-import actionTypes from './auth-types';
 import actions from './auth-actions';
 import services from './auth-services';
+import {actionTypes} from '.';
 
 const loginDispatch = createAsyncThunk(
   actionTypes.AUTH_HANDLE_PIN,
