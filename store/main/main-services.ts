@@ -1,8 +1,9 @@
+import {ProfileResponse} from '../../commons/apiType/profileResponse';
 import api from '../../services/api';
 
 const getProfile = async () => {
   const callApi = await api.main.getProfile();
-  return callApi;
+  return callApi as unknown as ProfileResponse;
 };
 
 const getTransaction = async () => {

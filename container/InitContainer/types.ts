@@ -1,4 +1,11 @@
 import {ContainerProps} from '../../commons/types';
-import {AuthContainerType} from '../../store/auth/types';
 
-export type InitContainerProps = ContainerProps<AuthContainerType>;
+export type InitContainerType = {
+  token: string;
+  pinCode: string;
+  loading: boolean;
+  logout: () => void;
+  resetPin: () => void;
+};
+
+export type InitContainerProps = ContainerProps<InitContainerType>;

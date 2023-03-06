@@ -60,7 +60,8 @@ const auth = {
 const main = {
   getProfile: () => request.get<void>('/user/profile'),
   getTransaction: () => request.get<void>('/user/transactions'),
-  withdraw: (data: AmountPropsRequest) => request.post<void>('user/withdraw', data),
+  withdraw: (data: AmountPropsRequest) =>
+    request.post<void>('user/withdraw', data),
 };
 
 const api = {
