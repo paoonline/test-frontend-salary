@@ -41,7 +41,7 @@ export const PasscodeScreen = () => (
                   name="close"
                   size={30}
                   onPress={props.remove}
-                  style={{margin: 25}}
+                  style={{margin: 25, paddingLeft: 12, paddingTop: 1}}
                 />
               ) : (
                 <NumCode key={key} onPress={() => props.handle(res)}>
